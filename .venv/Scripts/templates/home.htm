@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    {% block styles %} <link rel="stylesheet" href="/static/css/home.css"> {% endblock %}
+    
+
+</head>
+<body>
+
+    <section class="containerAll">
+
+        
+    <div>
+
+        <div style="display: flex; justify-content: center;">
+
+       
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+    </div>
+  
+
+        <div style="display: flex; gap: 0.3em;">
+
+   
+        <div>
+
+    <h1>Italy</h1>
+    <input id="italy" type="number">
+
+    <button type="button" onclick="send()">send</button>
+</div>
+
+<div>
+
+
+    <h1>france</h1>
+    <input id="france" type="number">
+
+    <button type="button" onclick="send()">send</button>
+
+</div>
+
+
+<div>
+
+
+    <h1>spain</h1>
+    <input id="spain" type="number">
+
+    <button type="button" onclick="send()">send</button>
+</div>
+
+<div>
+
+
+    <h1>usa</h1>
+    <input id="usa" type="number">
+
+    <button type="button" onclick="send()">send</button>
+
+
+</div>
+
+    <div>
+
+    
+    <h1>Argentina</h1>
+    <input id="Argentina" type="number">
+
+    <button type="button" onclick="send()">send</button>
+
+</div>
+
+
+</div>
+</div>
+</section>
+
+<script>
+    
+   
+
+var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+var yValues = [55, 49, 44, 24, 15];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+function send() {
+
+yValues[0] = document.getElementById('italy').value
+
+
+
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+
+
+});
+}
+
+</script>
+    
+    
+</body>
+</html>
